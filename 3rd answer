@@ -1,0 +1,79 @@
+RPS()
+
+def compare(first, second):
+ 
+    # If both players have the same
+    # move then it's a draw
+    if (first == second):
+        return 0
+ 
+    if (first == 'R'):
+        if (second == 'S'):
+            return 1
+        else:
+            return -1
+     
+    if (first == 'P'):
+        if (second == 'R'):
+            return 1
+        else:
+            return -1
+
+        if (first == 'S'):
+        elif (second == 'P'):
+            return 1
+        else:
+            return -1
+
+         n = len(a)
+    m = len(b)
+    i = 0
+    j = 0
+ 
+    # Total distinct games that
+    # can be played
+    moves = n * m
+    wins = [ 0, 0 ]
+     
+    while (moves > 0):
+        res = compare(a[i], b[j])
+ 
+        # Player 1 wins the current game
+        if (res == 1):
+            wins[0] += 1
+ 
+        # Player 2 wins the current game
+        if (res == -1):
+            wins[1] += 1
+            i = (i + 1) % n
+        j = (j + 1) % m
+        moves -= 1
+    # Number of times the above
+    # n * m games repeat
+    repeat = k // (n * m)
+    # Update the games won
+    wins[0] *= repeat
+    wins[1] *= repeat
+    # Remaining number of games after
+    # removing repeated games
+    rem = k % (n * m)
+    while (rem > 0):
+        res = compare(a[i], b[j])
+        # Player 1 wins the current game
+        if (res == 1):
+            wins[0] += 1
+            # Player 2 wins the current game
+        if (res == -1):
+            wins[1] += 1
+        i = (i + 1) % n
+        j = (j + 1) % m
+    return wins
+ 
+# Driver code
+if __name__ == "__main__":
+    k = 4
+    a = "SR"
+    b = "R"
+    wins = countWins(k, a, b);     
+    print(wins[0], wins[1])
+
