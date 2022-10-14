@@ -1,0 +1,17 @@
+test> use newHRDatabase
+switched to db newHRDatabase
+newHRDatabase> show collections
+PersonalInfo
+ProfessionalInfo
+newHRDatabase> db.PersonalInfo.insert({Empid: 'X20221010', EmpName: 'Pritam',Age:'26',Gender:'Male',Contact:'9867789809',city:'delhi'})
+newHRDatabase> db.PersonalInfo.insert({Empid:'X20221011', EmpName:'Gitanjali',Age:'27',Gender:'Female',Contact:9878678909,city:'newyork'})
+newHRDatabase> db.PersonalInfo.insert({Empid:'X20221013', EmpName:'Sonam',Age:'29',Gender:'Female',Contact:9878678909,city:'Bengaluru'})
+newHRDatabase> db.PersonalInfo.insert({Empid:'X20221017', EmpName:'Shekar',Age:'28',Gender:'Male',Contact:9878678909,city:'Pune'})
+newHRDatabase> db.ProfessionalInfo.insert({Designation:'Consultant', Department:'Finance',Income:'8000'})
+newHRDatabase> db.ProfessionalInfo.insert({Designation:'Data analyst', Department:'Software',Income:'15000'})
+newHRDatabase> db.ProfessionalInfo.insert({Designation:'Sr.Developer', Department:'IT',Income:'9000'})
+newHRDatabase> db.ProfessionalInfo.insert({Designation:'Manager', Department:'Logistics',Income:'20000'})
+newHRDatabase> db.PersonalInfo.update({EmpName :'Gitanjali',},{$set:{'Age':'25','city':'chennai'}})
+newHRDatabase> db.PersonalInfo.update({EmpName : 'Sonam',},{$set:{'Age':'31','city':'Kolkata'}})
+newHRDatabase> db.PersonalInfo.find().pretty()
+ newHRDatabase> db.ProfessionalInfo.find().pretty()
